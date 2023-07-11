@@ -34,7 +34,7 @@ object Type {
 
     val Title = TextStyle(
         fontFamily = Robot,
-        fontWeight = FontWeight.SemiBold,
+        fontWeight = FontWeight.Medium,
         fontSize = textSize20,
         letterSpacing = textSize0
     )
