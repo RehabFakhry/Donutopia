@@ -5,33 +5,25 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.the_chance.donutopia.R
 import com.the_chance.donutopia.composable.ButtonClick
-import com.the_chance.donutopia.composable.MyTextStyle
 import com.the_chance.donutopia.composable.SpacerVertical
 import com.the_chance.donutopia.ui.theme.Background
 import com.the_chance.donutopia.ui.theme.Black
 import com.the_chance.donutopia.ui.theme.PrimaryColor
-import com.the_chance.donutopia.ui.theme.Robot
 import com.the_chance.donutopia.ui.theme.Type
 import com.the_chance.donutopia.ui.theme.White
 import com.the_chance.donutopia.ui.theme.space100
-import com.the_chance.donutopia.ui.theme.space16
 import com.the_chance.donutopia.ui.theme.space24
 import com.the_chance.donutopia.ui.theme.space32
 import com.the_chance.donutopia.ui.theme.space40
 import com.the_chance.donutopia.ui.theme.space46
-import com.the_chance.donutopia.ui.theme.space64
-import com.the_chance.donutopia.ui.theme.space8
 
 @Composable
 fun OnBoarding(){
