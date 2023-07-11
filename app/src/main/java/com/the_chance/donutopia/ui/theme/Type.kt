@@ -15,6 +15,30 @@ val Typography = Typography(
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
     )
+)
+
+object Type {
+    val Caption = TextStyle(
+        fontFamily = Robot,
+        fontWeight = FontWeight.Bold,
+        fontSize = textSize54,
+        letterSpacing = textSize0
+    )
+
+    val Body = TextStyle(
+        fontFamily = Robot,
+        fontWeight = FontWeight.Medium,
+        fontSize = textSize18,
+        letterSpacing = textSize0
+    )
+
+    val Title = TextStyle(
+        fontFamily = Robot,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = textSize20,
+        letterSpacing = textSize0
+    )
+}
     /* Other default text styles to override
     titleLarge = TextStyle(
         fontFamily = FontFamily.Default,
@@ -31,4 +55,3 @@ val Typography = Typography(
         letterSpacing = 0.5.sp
     )
     */
-)
