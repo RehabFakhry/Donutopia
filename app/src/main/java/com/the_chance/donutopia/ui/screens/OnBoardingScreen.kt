@@ -25,14 +25,20 @@ import com.the_chance.donutopia.ui.theme.Robot
 import com.the_chance.donutopia.ui.theme.Type
 import com.the_chance.donutopia.ui.theme.White
 import com.the_chance.donutopia.ui.theme.space100
+import com.the_chance.donutopia.ui.theme.space16
 import com.the_chance.donutopia.ui.theme.space24
 import com.the_chance.donutopia.ui.theme.space32
 import com.the_chance.donutopia.ui.theme.space40
+import com.the_chance.donutopia.ui.theme.space46
+import com.the_chance.donutopia.ui.theme.space64
+import com.the_chance.donutopia.ui.theme.space8
 
 @Composable
 fun OnBoarding(){
     Column(
-        modifier = Modifier.fillMaxSize().background(Background).padding(32.dp),
+        modifier = Modifier
+            .fillMaxSize().background(Background)
+            .padding(horizontal = space40, vertical = space46),
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -44,14 +50,14 @@ fun OnBoarding(){
             text = stringResource(R.string.gonuts_with_donuts),
             color = PrimaryColor ,
             style = Type.Caption,
-            modifier = Modifier.padding(horizontal = space32)
+            modifier = Modifier.padding(end = space32)
         )
         SpacerVertical(height = space24)
         Text(
             text = stringResource(R.string.welcome_text),
             color = PrimaryColor ,
             style = Type.Body,
-            modifier = Modifier.padding(horizontal = space32)
+            modifier = Modifier
         )
         SpacerVertical(height = space40)
         ButtonClick(

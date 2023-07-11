@@ -34,7 +34,7 @@ fun ButtonClick(
         Text(
             text = text,
             color = textColor ,
-            style = Type.Title,
+            style = Type.Body,
             modifier = modifier
         )
     }
