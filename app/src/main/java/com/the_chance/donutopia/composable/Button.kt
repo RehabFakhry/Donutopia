@@ -27,7 +27,7 @@ fun ButtonClick(
 ) {
     Button(
         onClick = onClick,
-        modifier = Modifier.fillMaxWidth(.8f),
+        modifier = Modifier.fillMaxWidth(),
         colors = ButtonDefaults.buttonColors(color),
         contentPadding = PaddingValues(space16)
     ) {
