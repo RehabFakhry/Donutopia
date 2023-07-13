@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -43,6 +44,8 @@ import com.the_chance.donutopia.ui.theme.Black60
 import com.the_chance.donutopia.ui.theme.PrimaryColor
 import com.the_chance.donutopia.ui.theme.SecondaryColor
 import com.the_chance.donutopia.ui.theme.Type
+import com.the_chance.donutopia.ui.theme.space16
+import com.the_chance.donutopia.ui.theme.space32
 
 
 @Composable
@@ -58,7 +61,7 @@ fun LazyRowDonut(state : DountsUiState){
         modifier = Modifier
             .fillMaxWidth()
             .height(325.dp),
-//        contentPadding = PaddingValues(8.dp),
+        contentPadding = PaddingValues(horizontal = space32),
         horizontalArrangement = Arrangement.spacedBy(48.dp)
     ){
         items(state.dountDetails){
@@ -73,35 +76,28 @@ fun DonutCard(
     Box(
         modifier = Modifier
             .height(325.dp)
-            .width(193.dp),
+            .width(195.dp),
     contentAlignment = Alignment.Center
     ) {
         Card(
             modifier = Modifier.fillMaxSize(),
-            colors = CardDefaults.cardColors(SecondaryColor)
+            colors = CardDefaults.cardColors(state.cardBackground)
         ) { }
         Card(shape = CircleShape,
-            modifier = Modifier.offset((-60).dp, (-110).dp)
+            modifier = Modifier.offset((-60).dp, (-120).dp)
         ) {
             Box(
                 modifier = Modifier.background(Color.White),
                 contentAlignment = Alignment.Center,
             ) {
-                IconButton(
-                    onClick = { /* Handle icon click */ },
-                ) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.icon_favorite),
-                        tint = PrimaryColor, contentDescription = "",
-                    )
-                }
+                CustomIcon()
             }
         }
 
         Card(
             modifier = Modifier
                 .size(180.dp)
-                .offset(60.dp, (-50).dp)
+                .offset(70.dp, (-65).dp)
                 .background(Color.Transparent),
             colors = CardDefaults.cardColors(Color.Transparent)
         ) {
@@ -131,7 +127,7 @@ fun DonutCard(
                 Text(
                     text = state.oldPrice,
                     color = Black60, style = Type.SubTitle)
-                SpacerHorizontal(width = 4.dp)
+                SpacerHorizontal(width = 8.dp)
                 Text(
                     text = state.newPrice,
                     color = Black, style = Type.SubHeader2

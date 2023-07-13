@@ -60,7 +60,7 @@ fun LazyRawDountPrice(
 private fun LazyRawContent(
     state: DountsUiState
 ) {
-    LazyRow( modifier = Modifier.padding(top = space16),
+    LazyRow( modifier = Modifier.padding(start = space16),
         horizontalArrangement = Arrangement.spacedBy(24.dp),
         contentPadding = PaddingValues(space16)
     ) {
