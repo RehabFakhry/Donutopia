@@ -86,12 +86,7 @@ fun HomeScreen() {
             )
         }
         SpacerVertical(space16)
-        Row(
-            Modifier.fillMaxWidth()
-                .padding(horizontal = space32)
-        ) {
-            LazyRowOffers()
-        }
+        LazyRowOffers()
         SpacerVertical(height = space16)
         Row(
             Modifier.fillMaxWidth()

@@ -2,6 +2,8 @@ package com.the_chance.donutopia.ui.screens.home
 
 import androidx.lifecycle.ViewModel
 import com.the_chance.donutopia.R
+import com.the_chance.donutopia.ui.theme.PinkBackground
+import com.the_chance.donutopia.ui.theme.SecondaryColor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -36,18 +38,17 @@ class HomeViewModel @Inject constructor(): ViewModel() {
             dountDetails = listOf(
                 DountDetailsUiState("Strawberry Wheel", R.drawable.image_dount,
                     "These Baked Strawberry Donuts are filled with fresh strawberries..."
-                    ,"$20", "$16"),
+                    ,"$20", "$16", SecondaryColor),
                 DountDetailsUiState("Chocolate Glaze", R.drawable.chocolate_glaze,
                     "Moist and fluffy baked chocolate donuts full of chocolate flavor."
-                    ,"$20", "$16"),
+                    ,"$20", "$16", PinkBackground),
                 DountDetailsUiState("Strawberry Wheel", R.drawable.image_dount,
                     "These Baked Strawberry Donuts are filled with fresh strawberries..."
-                    ,"$20", "$16"),
+                    ,"$20", "$16", SecondaryColor),
                 DountDetailsUiState("Chocolate Glaze", R.drawable.chocolate_glaze,
                     "Moist and fluffy baked chocolate donuts full of chocolate flavor."
-                    ,"$20", "$16"),
+                    ,"$20", "$16", PinkBackground),
             )
         ) }
     }
-
 }
