@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -32,8 +31,6 @@ import com.the_chance.donutopia.ui.theme.space24
 import com.the_chance.donutopia.ui.theme.space32
 import com.the_chance.donutopia.ui.theme.space40
 import com.the_chance.donutopia.ui.theme.space46
-import com.the_chance.donutopia.ui.theme.space64
-import com.the_chance.donutopia.ui.theme.space8
 
 @Composable
 fun OnBoarding() {
