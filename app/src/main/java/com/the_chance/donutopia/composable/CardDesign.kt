@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import com.the_chance.donutopia.ui.theme.space14
@@ -18,9 +19,9 @@ import com.the_chance.donutopia.ui.theme.space14
 @Composable
 fun CardDetails(
     text: String,
-    textColor: Color,
+    style: TextStyle,
     background: Color,
-    fontSize: TextUnit,
+
     ) {
         Card(
             modifier = Modifier.size(45.dp),
@@ -33,7 +34,7 @@ fun CardDetails(
 
             ) {
                 Text(
-                    text = text, color = textColor, fontSize = fontSize)
+                    text = text, style = style)
             }
 
         }

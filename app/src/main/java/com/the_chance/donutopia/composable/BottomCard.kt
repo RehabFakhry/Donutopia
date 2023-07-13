@@ -9,7 +9,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -19,9 +22,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.the_chance.donutopia.R
 import com.the_chance.donutopia.ui.theme.Black
@@ -43,22 +48,29 @@ import com.the_chance.donutopia.ui.theme.textSize32
 
 @Composable
 fun BottomCard() {
-    val navController = rememberNavController()
     Card(shape = RoundedCornerShape(space16)) {
-        Box(modifier = Modifier.background(White),
+        Box(
+            modifier = Modifier.background(White),
             contentAlignment = Alignment.Center,
-        ){
-            IconButton(
-                onClick = { /* Handle icon click */ },
+        ) {
+//            Card(
+//                modifier = Modifier,
+//                colors = CardDefaults.cardColors(White)
+//            ) {
+//            }
+            Card(
+                modifier = Modifier
+                    .wrapContentSize()
+                    .wrapContentHeight()
+                    .offset((320).dp, (-25).dp)
+                    .background(Color.Transparent),
+                colors = CardDefaults.cardColors(Color.Transparent)
             ) {
-                Icon(
-                    painter = painterResource(id =R.drawable.icon_favorite),
-                    tint = PrimaryColor,
-                    contentDescription = stringResource(R.string.fav_icon),
-                )
+                CustomIcon()
             }
         }
     }
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -73,8 +85,10 @@ fun BottomCard() {
                 .padding(vertical = space24, horizontal = space32),
             horizontalAlignment = Alignment.Start
         ) {
-            Text(text= stringResource(R.string.strawberry_wheel),
-                color = PrimaryColor , style = Type.SubHeader)
+            Text(
+                text = stringResource(R.string.strawberry_wheel),
+                color = PrimaryColor, style = Type.SubHeader
+            )
             SpacerVertical(height = space16)
             Text(text = stringResource(R.string.about_gonut), style = Type.Title, color = Black80)
             SpacerVertical(height = space16)
@@ -84,31 +98,42 @@ fun BottomCard() {
             SpacerVertical(height = space24)
             Row(
                 horizontalArrangement = Arrangement.spacedBy(space8),
-                verticalAlignment = Alignment.CenterVertically) {
-                CardDetails(text = " - ",
-                    textColor = Black ,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                CardDetails(
+                    text = " - ",
+                    style = Type.Title2,
                     background = White60,
-                    fontSize = textSize32)
+                )
                 SpacerHorizontal(width = space14)
-                CardDetails(text = "1",
-                    textColor = Black ,
+                CardDetails(
+                    text = "1",
+                    style = Type.SubHeader2,
                     background = White60,
-                    fontSize = textSize24)
+                )
                 SpacerHorizontal(width = space14)
-                CardDetails(text = "+",
-                    textColor = White ,
+                CardDetails(
+                    text = "+",
+                    style = Type.Title2,
                     background = Black,
-                    fontSize = textSize32)
+                )
             }
             Spacer(modifier = Modifier.weight(1f))
             Row(
-                verticalAlignment = Alignment.CenterVertically) {
-                Text(text = stringResource(R.string._16), style = Type.Title2,
-                    modifier= Modifier.padding(start = space16), color = Black)
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = stringResource(R.string._16), style = Type.Title2,
+                    modifier = Modifier.padding(start = space16), color = Black
+                )
                 SpacerHorizontal(width = space64)
                 ButtonClick(
-                    text = stringResource(R.string.add_to_cart), color = PrimaryColor, textColor = White ,
-                    {}, modifier = Modifier)
+                    text = stringResource(R.string.add_to_cart),
+                    color = PrimaryColor,
+                    textColor = White,
+                    {},
+                    modifier = Modifier
+                )
             }
             SpacerVertical(height = space16)
 
