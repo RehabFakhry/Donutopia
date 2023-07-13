@@ -26,24 +26,6 @@ fun DetailsScreen(navController: NavController){
     }
 }
 
-//Column {
-//    Card(shape = RoundedCornerShape(space16), modifier = Modifier.padding(start = space100)) {
-//        Box(
-//            modifier = Modifier.background(White),
-//            contentAlignment = Alignment.Center,
-//        ) {
-//            IconButton(
-//                onClick = { /* Handle icon click */ },
-//            ) {
-//                Icon(
-//                    painter = painterResource(id = R.drawable.icon_favorite),
-//                    tint = PrimaryColor,
-//                    contentDescription = stringResource(R.string.fav_icon),
-//                )
-//            }
-//        }
-//    }
-//}
 
 @Preview
 @Composable
