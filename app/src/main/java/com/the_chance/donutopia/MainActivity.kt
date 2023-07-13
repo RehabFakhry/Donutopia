@@ -12,7 +12,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Donutopia()
+//            OnBoarding()
+            com.the_chance.donutopia.ui.screens.home.HomeScreen()
         }
     }
 }
