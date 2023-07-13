@@ -25,6 +25,13 @@ object Type {
         letterSpacing = textSize0
     )
 
+    val SubHeader = TextStyle(
+        fontFamily = Robot,
+        fontWeight = FontWeight.Bold,
+        fontSize = textSize24,
+        letterSpacing = textSize0
+    )
+
     val Body = TextStyle(
         fontFamily = Robot,
         fontWeight = FontWeight.Medium,
@@ -32,10 +39,24 @@ object Type {
         letterSpacing = textSize0
     )
 
+    val SubBody = TextStyle(
+        fontFamily = Robot,
+        fontWeight = FontWeight.Light,
+        fontSize = textSize16,
+        letterSpacing = textSize0
+    )
+
     val Title = TextStyle(
         fontFamily = Robot,
         fontWeight = FontWeight.Medium,
         fontSize = textSize20,
+        letterSpacing = textSize0
+    )
+
+    val Title2 = TextStyle(
+        fontFamily = Robot,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = textSize32,
         letterSpacing = textSize0
     )
 }
