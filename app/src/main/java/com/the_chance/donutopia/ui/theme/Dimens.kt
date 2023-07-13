@@ -15,6 +15,7 @@ val space14 = 14.dp
 val space16 = 16.dp
 val space24 = 24.dp
 val space32 = 32.dp
+val space38 = 38.dp
 val space40 = 40.dp
 val space46 = 46.dp
 val space48 = 48.dp
