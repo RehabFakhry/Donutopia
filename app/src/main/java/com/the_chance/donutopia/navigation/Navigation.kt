@@ -26,11 +26,9 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.the_chance.donutopia.ui.theme.PinkBackground
 import com.the_chance.donutopia.ui.theme.PrimaryColor
 import com.the_chance.donutopia.ui.theme.White
 import com.the_chance.donutopia.ui.theme.space0
