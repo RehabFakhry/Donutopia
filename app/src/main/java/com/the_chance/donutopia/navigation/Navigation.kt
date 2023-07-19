@@ -31,6 +31,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.the_chance.donutopia.ui.theme.PinkBackground
+import com.the_chance.donutopia.ui.theme.PrimaryColor
 import com.the_chance.donutopia.ui.theme.White
 import com.the_chance.donutopia.ui.theme.space0
 
@@ -39,10 +40,9 @@ import com.the_chance.donutopia.ui.theme.space0
 fun Navigation() {
     val navController = rememberNavController()
     Scaffold(
-        bottomBar = {}
+        bottomBar = { BottomBar(navController = navController)}
     ){
         BottomNavGraph(navController = navController)
-
     }
 }
 
@@ -83,13 +83,13 @@ fun RowScope.AddItem(
                 it.route == screen.route
             } == true
 
-            val iconTintColor = if (isSelected) White else PinkBackground
+            val iconTintColor = if (isSelected) White else PrimaryColor
 
             Row(
                 modifier = Modifier
                     .size(52.dp)
                     .clip(if (isSelected) CircleShape else RoundedCornerShape(0.dp))
-                    .background(if (isSelected) PinkBackground else Color.Transparent),
+                    .background(if (isSelected) PrimaryColor else Color.Transparent),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center,
             ) {
@@ -98,17 +98,13 @@ fun RowScope.AddItem(
                     contentDescription = screen.route,
                     tint = iconTintColor,
                 )
-                // Add additional content if needed
             }
         },
         selected = currentDestination?.hierarchy?.any {
             it.route == screen.route
         } == true,
         onClick = {
-            navController.navigate(screen.route) {
-                popUpTo(navController.graph.findStartDestination().id)
-                launchSingleTop = true
-            }
+            navController.navigate(screen.route)
         }
     )
 }
