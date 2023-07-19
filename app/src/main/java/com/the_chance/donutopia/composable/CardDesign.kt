@@ -18,23 +18,26 @@ import com.the_chance.donutopia.ui.theme.space14
 
 @Composable
 fun CardDetails(
+    modifier: Modifier,
     text: String,
     style: TextStyle,
     background: Color,
-
+    textColor: Color,
     ) {
         Card(
-            modifier = Modifier.size(45.dp),
+            modifier = modifier.size(45.dp),
             colors = CardDefaults.cardColors(containerColor = background),
             shape = RoundedCornerShape(space14),
             ) {
             Box(
-                modifier = Modifier.fillMaxSize(),
+                modifier = modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
 
             ) {
                 Text(
-                    text = text, style = style)
+                    text = text,
+                    color = textColor,
+                    style = style)
             }
 
         }

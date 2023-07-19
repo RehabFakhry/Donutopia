@@ -75,6 +75,8 @@ dependencies {
     // Coil Compose
     implementation "io.coil-kt:coil-compose:2.0.0"
 
+    implementation "androidx.compose.material:material:1.4.3"
+
     implementation "com.google.accompanist:accompanist-systemuicontroller:0.18.0"
 
     implementation "com.google.accompanist:accompanist-pager:0.20.0"
@@ -82,4 +84,6 @@ dependencies {
     // Navigation Compose
     implementation "androidx.navigation:navigation-compose:2.6.0"
     implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
+//    implementation "androidx.navigation:navigation-compose:2.7.0-beta02"
+
 }

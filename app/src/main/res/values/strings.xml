@@ -18,4 +18,5 @@
     <string name="today_offers">Today Offers</string>
     <string name="dount_price">Dount Price</string>
     <string name="dounts_image">Dounts Image</string>
+    <string name="category">category</string>
 </resources>
