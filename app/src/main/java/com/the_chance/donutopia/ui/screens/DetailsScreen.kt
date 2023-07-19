@@ -21,7 +21,7 @@ fun DetailsScreen(navController: NavController){
         ImageDount(navController = navController)
         Column {
             Spacer(modifier = Modifier.weight(1f))
-            BottomCard()
+            BottomCard(navController)
         }
     }
 }

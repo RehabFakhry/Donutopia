@@ -2,6 +2,7 @@ package com.the_chance.donutopia.composable
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,11 +19,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -30,33 +28,36 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
 import com.the_chance.donutopia.R
+import com.the_chance.donutopia.navigation.Screen
 import com.the_chance.donutopia.ui.screens.home.DountDetailsUiState
 import com.the_chance.donutopia.ui.screens.home.DountsUiState
 import com.the_chance.donutopia.ui.screens.home.HomeViewModel
 import com.the_chance.donutopia.ui.theme.Black
 import com.the_chance.donutopia.ui.theme.Black60
-import com.the_chance.donutopia.ui.theme.PrimaryColor
-import com.the_chance.donutopia.ui.theme.SecondaryColor
 import com.the_chance.donutopia.ui.theme.Type
-import com.the_chance.donutopia.ui.theme.space16
 import com.the_chance.donutopia.ui.theme.space32
 
 
 @Composable
 fun LazyRowOffers(
-    homeViewModel : HomeViewModel = hiltViewModel()
+    homeViewModel : HomeViewModel = hiltViewModel(),
+    navController: NavController,
 ){
     val state by homeViewModel.state.collectAsState()
-    LazyRowDonut(state = state )
+    LazyRowDonut(state = state, navController = navController)
 }
 @Composable
-fun LazyRowDonut(state : DountsUiState){
+fun LazyRowDonut(
+    state : DountsUiState,
+    navController: NavController){
     LazyRow(
         modifier = Modifier
             .fillMaxWidth()
@@ -65,13 +66,14 @@ fun LazyRowDonut(state : DountsUiState){
         horizontalArrangement = Arrangement.spacedBy(48.dp)
     ){
         items(state.dountDetails){
-            DonutCard(state = it)
+            DonutCard(state = it, navController = navController)
         }
     }
 }
 @Composable
 fun DonutCard(
-    state : DountDetailsUiState
+    navController: NavController,
+    state : DountDetailsUiState,
 ) {
     Box(
         modifier = Modifier
@@ -80,7 +82,9 @@ fun DonutCard(
     contentAlignment = Alignment.Center
     ) {
         Card(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxSize()
+                .clickable{navController.navigate(Screen.DetailsScreen.route)},
             colors = CardDefaults.cardColors(state.cardBackground)
         ) { }
         Card(shape = CircleShape,
@@ -103,7 +107,7 @@ fun DonutCard(
         ) {
         Image(
             painter = rememberAsyncImagePainter(model = state.image),
-            contentDescription = "category",
+            contentDescription = stringResource(R.string.category),
             modifier = Modifier.fillMaxSize(),
         )
     }
@@ -138,28 +142,9 @@ fun DonutCard(
     }
 }
 
-@Composable
-fun RoundedIconButton(
-    color: Color,
-    icon: Int,
-) {
-    Card(shape = RoundedCornerShape(16.dp)) {
-        Box(
-            modifier = Modifier
-                .background(color),
-            contentAlignment = Alignment.Center
-        ) {
-            IconButton(
-                onClick = { /*TODO*/ },
-            ) {
-                CustomIcon()
-            }
-        }
-    }
-}
-
 @Preview(showBackground = true)
 @Composable
 fun PreviewHomeComposable() {
-    LazyRowOffers()
+    val navController = rememberNavController()
+    LazyRowOffers(navController = navController)
 }

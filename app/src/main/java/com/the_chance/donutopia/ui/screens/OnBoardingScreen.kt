@@ -18,9 +18,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.the_chance.donutopia.R
 import com.the_chance.donutopia.composable.ButtonClick
 import com.the_chance.donutopia.composable.SpacerVertical
+import com.the_chance.donutopia.navigation.Screen
 import com.the_chance.donutopia.ui.theme.Background
 import com.the_chance.donutopia.ui.theme.Black
 import com.the_chance.donutopia.ui.theme.PrimaryColor
@@ -33,7 +36,7 @@ import com.the_chance.donutopia.ui.theme.space40
 import com.the_chance.donutopia.ui.theme.space46
 
 @Composable
-fun OnBoarding() {
+fun OnBoardingScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -74,7 +77,7 @@ fun OnBoarding() {
                 text = stringResource(R.string.get_started),
                 color = White,
                 textColor = Black,
-                onClick = {},
+                onClick = {navController.navigate(Screen.HomeScreen.route)},
                 modifier = Modifier
             )
         }
@@ -84,5 +87,6 @@ fun OnBoarding() {
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun PreviewOnBoarding() {
-    OnBoarding()
+    val navController = rememberNavController()
+    OnBoardingScreen(navController)
 }

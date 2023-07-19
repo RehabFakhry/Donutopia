@@ -1,14 +1,14 @@
 package com.the_chance.donutopia.navigation
+
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.the_chance.donutopia.navigation.BottomBarScreen
 import com.the_chance.donutopia.ui.screens.CartScreen
 import com.the_chance.donutopia.ui.screens.FavoritesScreen
-import com.the_chance.donutopia.ui.screens.HomeScreen
 import com.the_chance.donutopia.ui.screens.NotificationScreen
 import com.the_chance.donutopia.ui.screens.ProfileScreen
+import com.the_chance.donutopia.ui.screens.home.HomeScreen
 
 @Composable
 fun BottomNavGraph(navController: NavHostController) {
@@ -17,7 +17,7 @@ fun BottomNavGraph(navController: NavHostController) {
         startDestination = BottomBarScreen.Home.route)
     {
         composable(route = BottomBarScreen.Home.route){
-            HomeScreen()
+            HomeScreen(navController)
         }
         composable(route = BottomBarScreen.Favorites.route){
             FavoritesScreen()
