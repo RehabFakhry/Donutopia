@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.the_chance.donutopia.R
+import com.the_chance.donutopia.navigation.Screen
 import com.the_chance.donutopia.ui.theme.Black
 import com.the_chance.donutopia.ui.theme.Black60
 import com.the_chance.donutopia.ui.theme.Black80
@@ -130,7 +131,7 @@ fun BottomCard(navController: NavController) {
                         text = stringResource(R.string.add_to_cart),
                         color = PrimaryColor,
                         textColor = White,
-                        onClick = { navController.navigate("cartScreen") },
+                        onClick = { navController.navigate(Screen.CartScreen.route) },
                         modifier = Modifier
                     )
                 }

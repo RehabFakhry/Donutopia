@@ -16,7 +16,7 @@ import com.the_chance.donutopia.ui.theme.DonutopiaTheme
 fun Donutopia(){
     DonutopiaTheme {
         val navController = rememberNavController()
-        NavHost(navController = navController, startDestination = "onBoardingScreen"){
+        NavHost(navController = navController, startDestination = Screen.onBoardingScreen.route){
             composable(Screen.onBoardingScreen.route){ OnBoardingScreen(navController)}
             composable(Screen.HomeScreen.route){ HomeScreen(navController)}
             composable(Screen.DetailsScreen.route){ DetailsScreen(navController)}
