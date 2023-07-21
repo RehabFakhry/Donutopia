@@ -1,17 +1,14 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
 
 package com.the_chance.donutopia.navigation
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -27,8 +24,10 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.the_chance.donutopia.ui.screens.dountsdetails.detailsRoute
 import com.the_chance.donutopia.ui.theme.PrimaryColor
 import com.the_chance.donutopia.ui.theme.White
+import com.the_chance.donutopia.ui.theme.space8
 
 @Composable
 fun BottomBar(navController: NavHostController) {
@@ -42,8 +41,8 @@ fun BottomBar(navController: NavHostController) {
 
     val bottomBarScreens = listOf(
         BottomBarScreen.OnBoardingScreen.route,
-        BottomBarScreen.DetailsScreen.route,
-    )
+        detailsRoute,
+        )
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
@@ -51,7 +50,8 @@ fun BottomBar(navController: NavHostController) {
     if (showBottomBar) {
         BottomNavigation(
             backgroundColor = Color.Transparent,
-            elevation = .5f.dp
+            elevation = .1.dp,
+            modifier = Modifier.padding(space8)
         ) {
             screens.forEach { screens ->
                 AddItem(
@@ -77,15 +77,13 @@ fun RowScope.AddItem(
 
             val iconTintColor = if (isSelected) White else PrimaryColor
 
-            Row(
+            Box(
                 modifier = Modifier
-                    .size(52.dp)
                     .clip(if (isSelected) CircleShape else RoundedCornerShape(0.dp))
                     .background(if (isSelected) PrimaryColor else Color.Transparent),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center,
             ) {
                 Icon(
+                    modifier= Modifier.align(Alignment.Center).padding(space8),
                     painter = painterResource(screen.icon),
                     contentDescription = screen.route,
                     tint = iconTintColor,

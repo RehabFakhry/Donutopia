@@ -16,6 +16,7 @@ data class DountPriceUiState(
 data class DountDetailsUiState(
     val name: String,
     val image: Int,
+    val isFavorite: Boolean,
     val description: String,
     val oldPrice: String,
     val newPrice: String,

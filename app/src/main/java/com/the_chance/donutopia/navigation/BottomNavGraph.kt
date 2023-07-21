@@ -7,12 +7,19 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.the_chance.donutopia.ui.screens.CartScreen
-import com.the_chance.donutopia.ui.screens.DetailsScreen
+import com.the_chance.donutopia.ui.screens.dountsdetails.DetailsScreen
 import com.the_chance.donutopia.ui.screens.FavoritesScreen
 import com.the_chance.donutopia.ui.screens.NotificationScreen
 import com.the_chance.donutopia.ui.screens.onboarding.OnBoardingScreen
 import com.the_chance.donutopia.ui.screens.ProfileScreen
+import com.the_chance.donutopia.ui.screens.dountsdetails.dountsDetailsRoute
 import com.the_chance.donutopia.ui.screens.home.HomeScreen
+import com.the_chance.donutopia.ui.screens.home.homeRoute
+import com.the_chance.donutopia.ui.screens.onboarding.onBoardingRoute
+
+val LocalNavigationProvider = staticCompositionLocalOf<NavHostController> {
+    error("No navigation host controller provided.")
+}
 
 @Composable
 fun BottomNavGraph(navController: NavHostController) {
@@ -22,7 +29,7 @@ fun BottomNavGraph(navController: NavHostController) {
     )
     {
 
-        onBoarding()
+        onBoardingRoute()
         homeRoute()
 
         composable(route = BottomBarScreen.Home.route) {
@@ -40,28 +47,6 @@ fun BottomNavGraph(navController: NavHostController) {
         composable(route = BottomBarScreen.Profile.route) {
             ProfileScreen()
         }
-        dountsDetails()
-    }
-}
-
-val LocalNavigationProvider = staticCompositionLocalOf<NavHostController> {
-    error("No navigation host controller provided.")
-}
-
-fun NavGraphBuilder.onBoarding() {
-    composable(route = BottomBarScreen.OnBoardingScreen.route) {
-        OnBoardingScreen()
-    }
-}
-
-fun NavGraphBuilder.homeRoute() {
-    composable(route = BottomBarScreen.Home.route) {
-        HomeScreen()
-    }
-}
-
-fun NavGraphBuilder.dountsDetails() {
-    composable(route = BottomBarScreen.DetailsScreen.route) {
-        DetailsScreen()
+        dountsDetailsRoute()
     }
 }

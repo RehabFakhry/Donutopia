@@ -37,16 +37,16 @@ class HomeViewModel @Inject constructor(): ViewModel() {
         _state.update { it.copy(
             dountDetails = listOf(
                 DountDetailsUiState("Strawberry Wheel", R.drawable.image_dount,
-                    "These Baked Strawberry Donuts are filled with fresh strawberries..."
+                    false,"These Baked Strawberry Donuts are filled with fresh strawberries..."
                     ,"$20", "$16", SecondaryColor),
                 DountDetailsUiState("Chocolate Glaze", R.drawable.chocolate_glaze,
-                    "Moist and fluffy baked chocolate donuts full of chocolate flavor."
+                    false,"Moist and fluffy baked chocolate donuts full of chocolate flavor."
                     ,"$20", "$16", PinkBackground),
                 DountDetailsUiState("Strawberry Wheel", R.drawable.image_dount,
-                    "These Baked Strawberry Donuts are filled with fresh strawberries..."
+                    false,"These Baked Strawberry Donuts are filled with fresh strawberries..."
                     ,"$20", "$16", SecondaryColor),
                 DountDetailsUiState("Chocolate Glaze", R.drawable.chocolate_glaze,
-                    "Moist and fluffy baked chocolate donuts full of chocolate flavor."
+                    false,"Moist and fluffy baked chocolate donuts full of chocolate flavor."
                     ,"$20", "$16", PinkBackground),
             )
         ) }

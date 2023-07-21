@@ -32,6 +32,7 @@ import com.the_chance.donutopia.ui.theme.space16
 import com.the_chance.donutopia.ui.theme.space32
 import com.the_chance.donutopia.ui.theme.space4
 import com.the_chance.donutopia.ui.theme.space40
+import com.the_chance.donutopia.ui.theme.space64
 import com.the_chance.donutopia.ui.theme.space8
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -41,7 +42,7 @@ fun HomeScreen() {
     Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = space32),
+                .padding(top = space64),
             horizontalAlignment = Alignment.Start
         )
         {

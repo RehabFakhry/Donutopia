@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -39,6 +40,7 @@ import com.the_chance.donutopia.ui.theme.space24
 import com.the_chance.donutopia.ui.theme.space32
 import com.the_chance.donutopia.ui.theme.space40
 import com.the_chance.donutopia.ui.theme.space46
+import com.the_chance.donutopia.ui.theme.space8
 
 @Composable
 fun OnBoardingScreen(){
@@ -100,14 +102,14 @@ fun AnimatedImage() {
         }
     }
     Box(
-        modifier = Modifier.fillMaxWidth(1.2f).height(350.dp)
+        modifier = Modifier.padding(top = space16).fillMaxWidth(1.2f).height(350.dp)
             .graphicsLayer(translationX = offsetX.value) // Apply the horizontal offset animation using graphicsLayer
     ) {
         Image(
-            painter = painterResource(id = R.drawable.group_dounts),
+            painter = painterResource(id = R.drawable.img),
             contentDescription = null,
             contentScale = ContentScale.Crop,
-            modifier = Modifier
+            modifier = Modifier.size(530.dp)
         )
     }
 }
