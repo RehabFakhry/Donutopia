@@ -36,7 +36,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
 import com.the_chance.donutopia.R
-import com.the_chance.donutopia.navigation.Screen
+import com.the_chance.donutopia.navigation.BottomBarScreen
 import com.the_chance.donutopia.ui.screens.home.DountDetailsUiState
 import com.the_chance.donutopia.ui.screens.home.DountsUiState
 import com.the_chance.donutopia.ui.screens.home.HomeViewModel
@@ -84,7 +84,7 @@ fun DonutCard(
         Card(
             modifier = Modifier
                 .fillMaxSize()
-                .clickable{navController.navigate(Screen.DetailsScreen.route)},
+                .clickable{navController.navigate(BottomBarScreen.DetailsScreen.route)},
             colors = CardDefaults.cardColors(state.cardBackground)
         ) { }
         Card(shape = CircleShape,

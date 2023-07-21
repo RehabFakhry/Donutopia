@@ -13,25 +13,21 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.the_chance.donutopia.R
-import com.the_chance.donutopia.navigation.Screen
+import com.the_chance.donutopia.navigation.BottomBarScreen
 import com.the_chance.donutopia.ui.theme.Black
 import com.the_chance.donutopia.ui.theme.Black60
 import com.the_chance.donutopia.ui.theme.Black80
@@ -46,8 +42,6 @@ import com.the_chance.donutopia.ui.theme.space32
 import com.the_chance.donutopia.ui.theme.space40
 import com.the_chance.donutopia.ui.theme.space64
 import com.the_chance.donutopia.ui.theme.space8
-import com.the_chance.donutopia.ui.theme.textSize24
-import com.the_chance.donutopia.ui.theme.textSize32
 
 @Composable
 fun BottomCard(navController: NavController) {
@@ -131,7 +125,7 @@ fun BottomCard(navController: NavController) {
                         text = stringResource(R.string.add_to_cart),
                         color = PrimaryColor,
                         textColor = White,
-                        onClick = { navController.navigate(Screen.CartScreen.route) },
+                        onClick = { navController.navigate(BottomBarScreen.Cart.route) },
                         modifier = Modifier
                     )
                 }

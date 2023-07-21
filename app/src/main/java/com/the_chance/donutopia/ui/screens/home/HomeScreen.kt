@@ -9,10 +9,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,33 +18,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.the_chance.donutopia.R
 import com.the_chance.donutopia.composable.CardDount
 import com.the_chance.donutopia.composable.LazyRowOffers
 import com.the_chance.donutopia.composable.SpacerVertical
-import com.the_chance.donutopia.navigation.BottomBar
-import com.the_chance.donutopia.navigation.BottomNavGraph
+import com.the_chance.donutopia.navigation.LocalNavigationProvider
 import com.the_chance.donutopia.ui.theme.Background
 import com.the_chance.donutopia.ui.theme.Black
 import com.the_chance.donutopia.ui.theme.Black60
 import com.the_chance.donutopia.ui.theme.PrimaryColor
 import com.the_chance.donutopia.ui.theme.Type
-import com.the_chance.donutopia.ui.theme.space100
 import com.the_chance.donutopia.ui.theme.space16
 import com.the_chance.donutopia.ui.theme.space32
-import com.the_chance.donutopia.ui.theme.space38
 import com.the_chance.donutopia.ui.theme.space4
 import com.the_chance.donutopia.ui.theme.space40
-import com.the_chance.donutopia.ui.theme.space46
-import com.the_chance.donutopia.ui.theme.space56
 import com.the_chance.donutopia.ui.theme.space8
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun HomeScreen(navController: NavController) {
-        Column(
+fun HomeScreen() {
+    val navController = LocalNavigationProvider.current
+    Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(top = space32),
@@ -117,6 +109,5 @@ fun HomeScreen(navController: NavController) {
 @Composable
 
 fun PreviewHomeScreen() {
-    val navController = rememberNavController()
-    HomeScreen(navController)
+    HomeScreen()
 }

@@ -2,7 +2,6 @@
 
 package com.the_chance.donutopia.navigation
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -14,7 +13,6 @@ import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -26,23 +24,11 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
 import com.the_chance.donutopia.ui.theme.PrimaryColor
 import com.the_chance.donutopia.ui.theme.White
-import com.the_chance.donutopia.ui.theme.space0
-
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@Composable
-fun Navigation() {
-    val navController = rememberNavController()
-    Scaffold(
-        bottomBar = { BottomBar(navController = navController)}
-    ){
-        BottomNavGraph(navController = navController)
-    }
-}
 
 @Composable
 fun BottomBar(navController: NavHostController) {
@@ -54,17 +40,25 @@ fun BottomBar(navController: NavHostController) {
         BottomBarScreen.Profile,
     )
 
+    val bottomBarScreens = listOf(
+        BottomBarScreen.OnBoardingScreen.route,
+        BottomBarScreen.DetailsScreen.route,
+    )
+
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
-
-    BottomNavigation(
-        backgroundColor = Color.Transparent,
-        elevation = space0
-    ) {
-        screens.forEach { screens ->
-            AddItem(screen = screens,
-                currentDestination = currentDestination,
-                navController = navController)
+    val showBottomBar = currentDestination?.route !in bottomBarScreens
+    if (showBottomBar) {
+        BottomNavigation(
+            backgroundColor = Color.Transparent,
+            elevation = .5f.dp
+        ) {
+            screens.forEach { screens ->
+                AddItem(
+                    screen = screens,
+                    currentDestination = currentDestination,
+                    navController = navController)
+            }
         }
     }
 }
@@ -103,6 +97,10 @@ fun RowScope.AddItem(
         } == true,
         onClick = {
             navController.navigate(screen.route)
+            {
+                popUpTo(navController.graph.findStartDestination().id)
+                launchSingleTop = true
+            }
         }
     )
 }

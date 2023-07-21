@@ -31,4 +31,14 @@ sealed class BottomBarScreen(
         route = "profile",
         icon = R.drawable.icon_profile
     )
+
+    object OnBoardingScreen :BottomBarScreen(
+        route = "OnBoardingScreen",
+        0
+    )
+    object DetailsScreen :BottomBarScreen(
+        route = "DetailsScreen",
+        0
+    )
 }
+

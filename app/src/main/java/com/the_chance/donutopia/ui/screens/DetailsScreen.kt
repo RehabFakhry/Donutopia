@@ -11,9 +11,11 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.the_chance.donutopia.composable.BottomCard
 import com.the_chance.donutopia.composable.ImageDount
+import com.the_chance.donutopia.navigation.LocalNavigationProvider
 
 @Composable
-fun DetailsScreen(navController: NavController){
+fun DetailsScreen(){
+    val navController = LocalNavigationProvider.current
     Box(
         modifier = Modifier
             .fillMaxSize(),
@@ -30,6 +32,5 @@ fun DetailsScreen(navController: NavController){
 @Preview
 @Composable
 fun PreviewDetailsScreen(){
-    val navController = rememberNavController()
-    DetailsScreen(navController = navController)
+    DetailsScreen()
 }
