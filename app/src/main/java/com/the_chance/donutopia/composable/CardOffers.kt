@@ -36,7 +36,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
 import com.the_chance.donutopia.R
-import com.the_chance.donutopia.navigation.BottomBarScreen
+import com.the_chance.donutopia.ui.screens.dountsdetails.navigateToDetails
 import com.the_chance.donutopia.ui.screens.home.DountDetailsUiState
 import com.the_chance.donutopia.ui.screens.home.DountsUiState
 import com.the_chance.donutopia.ui.screens.home.HomeViewModel
@@ -79,15 +79,16 @@ fun DonutCard(
         modifier = Modifier
             .height(325.dp)
             .width(195.dp),
-    contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center
     ) {
         Card(
             modifier = Modifier
                 .fillMaxSize()
-                .clickable{navController.navigate(BottomBarScreen.DetailsScreen.route)},
+                .clickable { navController.navigateToDetails(state.name)},
             colors = CardDefaults.cardColors(state.cardBackground)
         ) { }
-        Card(shape = CircleShape,
+        Card(
+            shape = CircleShape,
             modifier = Modifier.offset((-60).dp, (-120).dp)
         ) {
             Box(
@@ -105,12 +106,12 @@ fun DonutCard(
                 .background(Color.Transparent),
             colors = CardDefaults.cardColors(Color.Transparent)
         ) {
-        Image(
-            painter = rememberAsyncImagePainter(model = state.image),
-            contentDescription = stringResource(R.string.category),
-            modifier = Modifier.fillMaxSize(),
-        )
-    }
+            Image(
+                painter = rememberAsyncImagePainter(model = state.image),
+                contentDescription = stringResource(R.string.category),
+                modifier = Modifier.fillMaxSize(),
+            )
+        }
         Column(
             modifier = Modifier
                 .padding(16.dp)
@@ -130,7 +131,8 @@ fun DonutCard(
             ) {
                 Text(
                     text = state.oldPrice,
-                    color = Black60, style = Type.SubTitle)
+                    color = Black60, style = Type.SubTitle
+                )
                 SpacerHorizontal(width = 8.dp)
                 Text(
                     text = state.newPrice,

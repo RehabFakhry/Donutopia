@@ -18,6 +18,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CardElevation
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -87,7 +88,8 @@ fun DountsPriceItem(state: DountPriceUiState) {
                         bottomStart = space10, bottomEnd = space10
                     )
                 ),
-            colors = CardDefaults.cardColors(White)
+            colors = CardDefaults.cardColors(White),
+            elevation = CardDefaults.cardElevation(1.dp)
         )
         {
         }

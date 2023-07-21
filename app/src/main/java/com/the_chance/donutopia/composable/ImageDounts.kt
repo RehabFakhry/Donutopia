@@ -6,6 +6,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -22,30 +24,39 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import coil.compose.rememberAsyncImagePainter
 import com.the_chance.donutopia.R
+import com.the_chance.donutopia.ui.screens.dountsdetails.DetailsUiState
 import com.the_chance.donutopia.ui.theme.Background
 import com.the_chance.donutopia.ui.theme.PinkBackground
 import com.the_chance.donutopia.ui.theme.PrimaryColor
+import com.the_chance.donutopia.ui.theme.space24
+import com.the_chance.donutopia.ui.theme.space32
 
 @Composable
-fun ImageDount(navController: NavController) {
+fun ImageDount(
+    navController: NavController,
+    donutState: DetailsUiState,
+    modifier: Modifier = Modifier,
+    ) {
     Box(
-        modifier = Modifier
-            .fillMaxSize()
+        modifier = modifier.fillMaxHeight(.5f).fillMaxWidth()
             .background(Background),
     ) {
         Image(
-            painter = painterResource(id = R.drawable.image_dount),
-            contentDescription = stringResource(R.string.dount_image),
-            contentScale = ContentScale.Crop,
+            painter = rememberAsyncImagePainter(donutState.image),
+            contentDescription = donutState.description,
+            contentScale = ContentScale.Fit,
             modifier = Modifier.fillMaxWidth()
+                .aspectRatio(1F)
+                .align(Alignment.Center),
         )
 
         Row(
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
-                .padding(horizontal = 24.dp)
-                .padding(top = 24.dp),
+                .padding(horizontal = space24)
+                .padding(top = space24),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             BackArrow(navController = navController)
@@ -58,7 +69,7 @@ fun ImageDount(navController: NavController) {
 fun BackArrow(navController: NavController){
     Box(
         modifier = Modifier
-            .size(32.dp)
+            .size(space32)
             .clickable {
                 navController.navigateUp()
             },
@@ -71,9 +82,9 @@ fun BackArrow(navController: NavController){
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun ImageIcon(){
-    val navController = rememberNavController()
-    ImageDount(navController)
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun ImageIcon(){
+//    val navController = rememberNavController()
+//    ImageDount(navController )
+//}

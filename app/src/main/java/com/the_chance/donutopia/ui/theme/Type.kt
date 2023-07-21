@@ -49,7 +49,7 @@ object Type {
     val SubBody = TextStyle(
         fontFamily = Robot,
         fontWeight = FontWeight.Light,
-        fontSize = textSize16,
+        fontSize = textSize20,
         letterSpacing = textSize0
     )
 

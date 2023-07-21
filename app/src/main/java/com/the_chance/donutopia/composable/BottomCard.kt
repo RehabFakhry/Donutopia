@@ -28,6 +28,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.the_chance.donutopia.R
 import com.the_chance.donutopia.navigation.BottomBarScreen
+import com.the_chance.donutopia.ui.screens.dountsdetails.DetailsUiState
 import com.the_chance.donutopia.ui.theme.Black
 import com.the_chance.donutopia.ui.theme.Black60
 import com.the_chance.donutopia.ui.theme.Black80
@@ -39,13 +40,17 @@ import com.the_chance.donutopia.ui.theme.space14
 import com.the_chance.donutopia.ui.theme.space16
 import com.the_chance.donutopia.ui.theme.space24
 import com.the_chance.donutopia.ui.theme.space32
+import com.the_chance.donutopia.ui.theme.space4
 import com.the_chance.donutopia.ui.theme.space40
-import com.the_chance.donutopia.ui.theme.space64
 import com.the_chance.donutopia.ui.theme.space8
 
 @Composable
-fun BottomCard(navController: NavController) {
-    Box(modifier = Modifier) {
+fun BottomCard(
+    navController: NavController,
+    modifier: Modifier = Modifier,
+    donutState: DetailsUiState,
+) {
+    Box(modifier = modifier) {
         Card(
             modifier = Modifier
                 .wrapContentSize()
@@ -56,10 +61,11 @@ fun BottomCard(navController: NavController) {
         ) {
             CustomIcon()
         }
+
         Card(
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxHeight(0.56f),
+                .fillMaxHeight(0.54f),
             shape = RoundedCornerShape(topStart = space40, topEnd = space40),
         ) {
             Column(
@@ -70,7 +76,7 @@ fun BottomCard(navController: NavController) {
                 horizontalAlignment = Alignment.Start
             ) {
                 Text(
-                    text = stringResource(R.string.strawberry_wheel),
+                    text = donutState.title,
                     color = PrimaryColor, style = Type.SubHeader
                 )
                 SpacerVertical(height = space16)
@@ -80,7 +86,8 @@ fun BottomCard(navController: NavController) {
                     color = Black80
                 )
                 SpacerVertical(height = space16)
-                Text(text = stringResource(R.string.details), style = Type.SubBody, color = Black60)
+                Text(text = donutState.description, style = Type.SubBody,
+                    color = Black60)
                 SpacerVertical(height = space16)
                 Text(text = stringResource(R.string.quantity), style = Type.Title, color = Black80)
                 SpacerVertical(height = space16)
@@ -117,10 +124,10 @@ fun BottomCard(navController: NavController) {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = stringResource(R.string._16), style = Type.SubHeader2,
+                        text = donutState.price, style = Type.SubHeader2,
                         modifier = Modifier.padding(start = space16), color = Black
                     )
-                    SpacerHorizontal(width = space64)
+                    SpacerHorizontal(width = space32)
                     ButtonClick(
                         text = stringResource(R.string.add_to_cart),
                         color = PrimaryColor,
@@ -129,15 +136,15 @@ fun BottomCard(navController: NavController) {
                         modifier = Modifier
                     )
                 }
-                SpacerVertical(height = space8)
+                SpacerVertical(height = space4)
             }
         }
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun PreviewBookingScreen() {
-    val navController = rememberNavController()
-    BottomCard(navController)
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun PreviewBookingScreen() {
+//    val navController = rememberNavController()
+//    BottomCard(navController)
+//}

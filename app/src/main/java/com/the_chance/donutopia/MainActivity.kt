@@ -11,7 +11,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            com.the_chance.donutopia.navigation.Donutopia()
+            com.the_chance.donutopia.ui.theme.DonutopiaTheme {
+                com.the_chance.donutopia.navigation.Donutopia()
+            }
         }
     }
 }
