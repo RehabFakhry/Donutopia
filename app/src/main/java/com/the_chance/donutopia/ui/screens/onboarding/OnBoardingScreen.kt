@@ -114,35 +114,6 @@ fun AnimatedImage() {
     }
 }
 
-//@Composable
-//fun AnimatedImage() {
-//    // Create the animation instance
-//    val scaleAnimation = rememberInfiniteTransition()
-//    val scale by scaleAnimation.animateFloat(
-//        initialValue = 1f, // Start scale
-//        targetValue = 1.2f, // End scale
-//        animationSpec = infiniteRepeatable(
-//            animation = keyframes {
-//                durationMillis = 1000 // Duration of each animation cycle
-//                0.5f at 500 // Scale up to 1.2f at 500 ms (half of the duration)
-//                1f at 1000 // Scale back to 1f at 1000 ms (full duration)
-//            },
-//            repeatMode = RepeatMode.Reverse
-//        )
-//    )
-//
-//    Box(
-//        modifier = Modifier.fillMaxWidth(1.2f).height(350.dp)
-//            .graphicsLayer(scaleX = scale, scaleY = scale) // Apply the scale animation using graphicsLayer
-//    ) {
-//        Image(
-//            painter = painterResource(id = R.drawable.group_dounts),
-//            contentDescription = null,
-//            contentScale = ContentScale.Crop,
-//            modifier = Modifier
-//        )
-//    }
-//}
 
 @Preview(showSystemUi = true, showBackground = true)
 @Composable

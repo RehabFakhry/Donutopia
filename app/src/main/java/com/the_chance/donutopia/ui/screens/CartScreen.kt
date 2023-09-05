@@ -5,6 +5,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.navigation.NavController
 
 
@@ -12,6 +13,6 @@ import androidx.navigation.NavController
 fun CartScreen(){
     Column(modifier = Modifier,
         horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(text = "Hello Cart Screen")
+        Text(text = "Hello Cart Screen", textAlign = TextAlign.Center)
     }
 }
